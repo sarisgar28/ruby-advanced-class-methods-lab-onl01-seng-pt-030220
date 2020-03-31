@@ -70,7 +70,7 @@ class Song
     def self.create_from_filename(fn)
       fn_arr = fn.split(" - ")
       song = Song.new 
-      song = artist_name
+      song.artist_name = artist_name
       song.save
     end 
     
