@@ -3,6 +3,8 @@ class Song
   attr_accessor :name, :artist_name
   @@all = []
 
+  
+ 
   def self.all
     @@all
   end
@@ -52,13 +54,27 @@ class Song
       a.name 
       end
     end 
-    require "pry"
-
+  
+  
     def self.new_from_filename(fn)
-      binding.pry
-	    song = self.new(fn.split" - ")
+      fn_arr = fn.split(" - ")
+	    artist_name = fn_arr.first
+	    song_name = fn_arr[1].gsub(".mp3","")
+	    song = Song.new
+	    song.name= song_name 
+	    song.artist_name= artist_name
+	    song
+    end 
+    
+    def self.create_from_filename(fn)
+       fn_arr = fn.split(" - ")
+	    artist_name = fn_arr.first
+	    song_name = fn_arr[1].gsub(".mp3","")
+	    song = Song.new
+	    song.name= song_name 
+	    song.artist_name= artist_name
 	    song.save
-    	song
+	    song
     end 
     
  
